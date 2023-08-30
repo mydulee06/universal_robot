@@ -3,7 +3,6 @@
 
    <!-- import main macro -->
    <xacro:include filename="$(find ur_description)/urdf/inc/ur_macro.xacro"/>
-   <xacro:include filename="$(find onrobot_rg_description)/urdf/onrobot_rg6_model.xacro"/>
 
    <!-- parameters -->
    <xacro:arg name="joint_limit_params" default=""/>
@@ -31,4 +30,11 @@
      safety_limits="$(arg safety_limits)"
      safety_pos_margin="$(arg safety_pos_margin)"
      safety_k_position="$(arg safety_k_position)"/>
+
+   <xacro:include filename="$(find onrobot_rg_description)/urdf/onrobot_rg2_model.xacro"/>
+
+   <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro"/>
+   <xacro:sensor_d435 parent="base_link" name="camera" use_nominal_extrinsics="true">
+     <origin xyz="-0.3890 -0.3550 0.8800" rpy="0 1.5708 0"/>
+   </xacro:sensor_d435>
 </robot>
